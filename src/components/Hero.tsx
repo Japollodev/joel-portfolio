@@ -76,7 +76,10 @@ export function Hero() {
               {...rise(0.35)}
               className="display mt-10 max-w-[22ch] text-[clamp(1.6rem,3vw,2.6rem)] leading-[1.12]"
             >
-              <Emph text={hero.thesis} />
+              <Emph
+                text={hero.thesis}
+                focusClass="font-jazz font-black tracking-[-0.01em] [font-size:1.08em] leading-none"
+              />
             </motion.p>
 
             <motion.p

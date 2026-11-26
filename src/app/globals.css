@@ -8,6 +8,7 @@
   --color-accent: #2f6bff;
 
   --font-display: var(--font-italiana), "Didot", "Bodoni 72", serif;
+  --font-jazz: var(--font-playfair), "Playfair Display", "Bodoni 72", serif;
   --font-mono: var(--font-plex-mono), ui-monospace, "SFMono-Regular", Menlo, monospace;
 
   --ease-editorial: cubic-bezier(0.22, 1, 0.36, 1);

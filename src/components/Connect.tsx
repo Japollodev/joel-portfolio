@@ -62,7 +62,7 @@ export function Connect() {
             </Reveal>
           </div>
 
-          <Reveal className="col-span-4 sm:col-span-3 md:col-span-4 md:col-start-9 md:self-end">
+          <Reveal className="col-span-4 sm:col-span-3 md:col-span-4 md:col-start-9 md:self-start">
             <Photo
               photo={connect.photo}
               aspect="3 / 4"
