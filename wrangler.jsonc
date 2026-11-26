@@ -1,0 +1,11 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "joel-portfolio",
+  "compatibility_date": "2026-11-26",
+  // Static-only Worker: serves the Next.js export from ./out, no Worker script needed.
+  "assets": {
+    "directory": "./out",
+    "not_found_handling": "404-page",
+    "html_handling": "auto-trailing-slash"
+  }
+}
