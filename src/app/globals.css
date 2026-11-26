@@ -1,0 +1,129 @@
+@import "tailwindcss";
+
+/* ───────────────────────── Design tokens ───────────────────────── */
+@theme {
+  --color-ink: #0e0e0e;
+  --color-paper: #f2efe9;
+  /* The one accent. Used as-is for large type, rules and fills. */
+  --color-accent: #2f6bff;
+
+  --font-display: var(--font-italiana), "Didot", "Bodoni 72", serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  --ease-editorial: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/*
+ * Tone-aware tokens. Each section sets .tone-ink or .tone-paper, and
+ * fg / muted / accent-text / rule follow automatically.
+ * accent-text is the same blue, nudged lighter on ink and deeper on paper
+ * so small text clears WCAG 4.5:1 (raw #2F6BFF is ~4.3:1 on ink, ~3.9:1 on paper).
+ */
+@theme inline {
+  --color-fg: var(--tone-fg);
+  --color-muted: var(--tone-muted);
+  --color-accent-text: var(--tone-accent-text);
+  --color-rule: var(--tone-rule);
+}
+
+.tone-ink {
+  --tone-bg: var(--color-ink);
+  --tone-fg: var(--color-paper);
+  --tone-muted: rgb(242 239 233 / 0.68);
+  --tone-accent-text: #5c8bff; /* ≈6.0:1 on #0E0E0E */
+  --tone-rule: rgb(242 239 233 / 0.14);
+  background-color: var(--tone-bg);
+  color: var(--tone-fg);
+}
+
+.tone-paper {
+  --tone-bg: var(--color-paper);
+  --tone-fg: var(--color-ink);
+  --tone-muted: rgb(14 14 14 / 0.7);
+  --tone-accent-text: #1f4fd8; /* ≈5.7:1 on #F2EFE9 */
+  --tone-rule: rgb(14 14 14 / 0.14);
+  background-color: var(--tone-bg);
+  color: var(--tone-fg);
+}
+
+/* ───────────────────────── Base ───────────────────────── */
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  background: var(--color-ink);
+  color: var(--color-paper);
+  font-family: var(--font-mono);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+section[id] {
+  scroll-margin-top: 4rem;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--tone-accent-text, #5c8bff);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+/* ───────────────────────── Utilities ───────────────────────── */
+
+/* Small uppercase labels with generous tracking */
+@utility label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  line-height: 1.4;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+/* Display headlines: tall, thin, tight leading */
+@utility display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.02;
+  letter-spacing: -0.005em;
+  text-wrap: balance;
+}
+
+/* Film grain overlay for photos. Add .grain to a relatively positioned wrapper. */
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.14;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.5  0 0 0 0 0.5  0 0 0 0 0.5  0 0 0 1.6 -0.3'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  background-size: 220px 220px;
+}
+
+/* Hide scrollbar on the swipeable mobile tile row */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
