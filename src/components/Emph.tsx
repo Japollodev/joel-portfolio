@@ -4,7 +4,16 @@ import { Fragment } from "react";
  * Renders copy with *asterisk* emphasis as <em>.
  * The word "focus" always takes the accent blue.
  */
-export function Emph({ text, accentClass = "text-accent" }: { text: string; accentClass?: string }) {
+export function Emph({
+  text,
+  accentClass = "text-accent",
+  focusClass = "",
+}: {
+  text: string;
+  accentClass?: string;
+  /** Extra classes applied only to the "focus" word (e.g. a display face). */
+  focusClass?: string;
+}) {
   const parts = text.split(/(\*[^*]+\*)/g);
   return (
     <>
@@ -13,7 +22,7 @@ export function Emph({ text, accentClass = "text-accent" }: { text: string; acce
           const inner = part.slice(1, -1);
           const isFocus = inner.trim().toLowerCase() === "focus";
           return (
-            <em key={i} className={isFocus ? `${accentClass} italic` : "italic"}>
+            <em key={i} className={isFocus ? `${accentClass} italic ${focusClass}`.trim() : "italic"}>
               {inner}
             </em>
           );

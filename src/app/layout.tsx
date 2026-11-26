@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { IBM_Plex_Mono, Italiana } from "next/font/google";
+import { IBM_Plex_Mono, Italiana, Playfair_Display } from "next/font/google";
 import { hero, site } from "@/content";
 import "./globals.css";
 
@@ -8,6 +8,15 @@ const italiana = Italiana({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-italiana",
+});
+
+// Experimental "jazzy" accent face for the hero's *focus*
+const playfair = Playfair_Display({
+  weight: "900",
+  style: "italic",
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-playfair",
 });
 
 const plexMono = IBM_Plex_Mono({
@@ -55,7 +64,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${italiana.variable} ${plexMono.variable}`}>
+    <html lang="en" className={`${italiana.variable} ${playfair.variable} ${plexMono.variable}`}>
       <body>{children}</body>
     </html>
   );
