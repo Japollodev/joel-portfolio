@@ -49,3 +49,7 @@ portfolio-resources.zip
 
 # local Claude Code settings
 .claude/settings.local.json
+
+# Cloudflare Wrangler
+.wrangler/
+.dev.vars*
