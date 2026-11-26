@@ -26,12 +26,12 @@ export function Beyond() {
           </div>
         </div>
 
-        {/* Small tiles: swipeable row on phones, three across from md up */}
+        {/* Small tiles: swipeable row on phones, four across from md up */}
         <Reveal className="mt-14 md:mt-20">
           <ul
             aria-label="Photos from life outside work"
             tabIndex={0}
-            className="no-scrollbar -mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 sm:-mx-8 sm:px-8 md:mx-0 md:grid md:max-w-[960px] md:grid-cols-3 md:gap-5 md:overflow-visible md:px-0"
+            className="no-scrollbar -mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 sm:-mx-8 sm:px-8 md:mx-0 md:grid md:max-w-[1280px] md:grid-cols-4 md:gap-5 md:overflow-visible md:px-0"
           >
             {beyond.tiles.map((tile) => (
               <li key={tile.caption} className="w-[72vw] shrink-0 snap-start sm:w-[44vw] md:w-auto">
