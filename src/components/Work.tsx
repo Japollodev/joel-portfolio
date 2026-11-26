@@ -34,7 +34,7 @@ export function Work() {
                     aria-expanded={isOpen}
                     aria-controls={panelId}
                     onClick={() => setOpen(isOpen ? null : i)}
-                    className="group grid w-full grid-cols-[2.5rem_1fr_auto] items-baseline gap-x-4 py-8 text-left md:grid-cols-[5rem_1fr_16rem_3rem] md:py-10 lg:grid-cols-[6rem_1fr_18rem_3rem]"
+                    className="group grid w-full grid-cols-[2.5rem_1fr_auto] items-baseline gap-x-4 px-3 py-8 text-left md:px-6 md:grid-cols-[5rem_1fr_16rem_3rem] md:py-10 lg:grid-cols-[6rem_1fr_18rem_3rem]"
                   >
                     <span className="label text-accent-text">{String(i + 1).padStart(2, "0")}</span>
                     <span className="display text-[clamp(2.6rem,7vw,6rem)] leading-none transition-colors duration-300 group-hover:text-accent-text">
@@ -69,7 +69,7 @@ export function Work() {
                       transition={{ duration: reduce ? 0 : 0.6, ease: [0.22, 1, 0.36, 1] }}
                       className="overflow-hidden"
                     >
-                      <div className="grid gap-x-4 pb-12 md:grid-cols-[5rem_1fr] lg:grid-cols-[6rem_1fr]">
+                      <div className="grid gap-x-4 px-3 pb-12 md:px-6 md:grid-cols-[5rem_1fr] lg:grid-cols-[6rem_1fr]">
                         <div className="md:col-start-2 md:max-w-[78ch]">
                           {entry.summary && (
                             <p className="text-[13px] leading-[1.85] text-muted md:text-sm">{entry.summary}</p>

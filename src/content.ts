@@ -62,7 +62,8 @@ export const hero = {
 export const about = {
   index: "001",
   label: "About",
-  headline: "An engineer who speaks business, and a builder who finishes the job.",
+  headline:
+    "An engineer who speaks business, and a builder who finishes the job.",
   bio: site.description,
   facts: ["Washington, DC based", "Full stack engineer", "Avid traveler"],
   photo: {
@@ -81,7 +82,7 @@ export const story = {
   paragraphs: [
     "I always wanted to solve problems, brainstorm new ideas, and figure out how to make things that were slow or annoying better, faster, and more convenient. However, it always took someone who knew software to implement my ideas. That sparked in me the desire to be able to do it myself.",
     "In 2019, I had the catalyst I needed: a job managing software engineers implementing AV programs. I wanted to see ideas come to life. I didn't want to go back to school, so I looked for ways to pivot. That's when I found Fullstack Academy.",
-    "I started with Fullstack Academy's introductory course, a one-to-two-month foundation in software engineering, then completed the full program in about five months. I kept teaching myself after graduating, and that work led to a software engineering role at Coinbase, where I spent about five years.",
+    "I started with Fullstack Academy's introductory course, a one-to-two-month foundation in software engineering, then completed the full program in about five months. I kept teaching myself after graduating, and that hard work along with some prayer and divine grace led to a software engineering role at Coinbase, where I spent five years furthering my skills to build.",
   ],
   photo: {
     src: "/images/story-iceland-road.jpg",
@@ -115,7 +116,8 @@ export const thesis = {
       body: "Implement the prescribed technology, and metrics to track the measurable impact, while ensuring the workflow itself doesn't become a blocker.",
     },
   ],
-  closing: "Understand, diagnose, deliver are the pillars, but the key is resolve and *focus*.",
+  closing:
+    "Understand, diagnose, deliver are the pillars, but the key is resolve and *focus*.",
   photo: {
     src: "/images/thesis-parthenon.jpg",
     alt: "Joel standing among the towering columns of the Parthenon under a bright, cloudy sky",
@@ -164,7 +166,7 @@ export const work = {
       bullets: [
         "Managed the audio-visual design workflow for retail, office and consumer spaces, and directed bid responses for installations across the Americas on projects with budgets of $200K+.",
         "Kept 5–6 external stakeholders aligned per project to deliver on time.",
-        "Restructured internal operations: streamlined the service invoice process and built a \"lessons learned\" repository to improve future projects.",
+        'Restructured internal operations: streamlined the service invoice process and built a "lessons learned" repository to improve future projects.',
       ],
     },
   ] satisfies WorkEntry[],
@@ -174,9 +176,20 @@ export const toolkit = {
   index: "005",
   label: "Toolkit",
   groups: [
-    { name: "Frontend", items: ["React", "TypeScript", "Next.js", "Tailwind CSS", "Material UI"] },
+    {
+      name: "Frontend",
+      items: ["React", "TypeScript", "Next.js", "Tailwind CSS", "Material UI"],
+    },
     { name: "Backend", items: ["Python", "FastAPI", "Pydantic"] },
-    { name: "AI", items: ["LangChain", "OpenAI and Anthropic APIs", "Claude Code", "Cursor"] },
+    {
+      name: "AI",
+      items: [
+        "LangChain",
+        "OpenAI and Anthropic APIs",
+        "Claude Code",
+        "Cursor",
+      ],
+    },
   ],
 };
 
@@ -209,10 +222,21 @@ export const beyond = {
     },
     {
       kind: "video" as const,
-      caption: "Music",
+      caption: "Jazz",
       src: "/images/beyond-concert-loop.mp4",
       poster: "/images/beyond-concert-poster.jpg",
       alt: "A live concert stage washed in yellow spotlights, seen from the crowd",
+    },
+    {
+      kind: "image" as const,
+      caption: "Art",
+      photo: {
+        src: "/images/beyond-art-deco-triptych.jpg",
+        alt: "An Art Deco triptych of three painted panels with gold leaf, robed women, and stylized flowers, hanging in a gallery",
+        width: 1024,
+        height: 768,
+        position: "50% 50%",
+      } satisfies Photo,
     },
   ],
   items: [
@@ -242,7 +266,8 @@ export const beyond = {
 export const goals = {
   index: "007",
   label: "Goals",
-  headline: "To build a reputation of curious customer focus and relentless engineering rigor.",
+  headline:
+    "To build a reputation of curious customer focus and relentless engineering rigor.",
   items: [
     {
       title: "Career goal",
@@ -259,10 +284,14 @@ export const goals = {
 export const connect = {
   index: "008",
   label: "Connect",
-  headline: "Looking for an easier process, or want to build something cool? Let's talk.",
+  headline:
+    "Looking for an easier process, or want to build something cool? Let's talk.",
   primaryEmail: "joel@sinfra.io",
   secondaryEmail: "japollodev@gmail.com",
-  linkedin: { label: "LinkedIn", href: "https://www.linkedin.com/in/japollodev/" },
+  linkedin: {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/japollodev/",
+  },
   location: "Washington, DC → New York",
   footer: "© 2026 Joel McGill · Built with focus · Washington, DC",
   photo: {
