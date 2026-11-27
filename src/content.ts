@@ -138,6 +138,7 @@ export type WorkEntry = {
 export const work = {
   index: "004",
   label: "Work & Experience",
+  resume: { label: "My Resume", href: "/joel-mcgill-resume.pdf" },
   entries: [
     {
       company: "Sinfra",
