@@ -66,7 +66,7 @@ export function Hero() {
       <motion.div
         aria-hidden="true"
         style={{ y: reduce ? 0 : bgY }}
-        className="grain absolute inset-x-0 -top-[6%] -z-10 h-[118%]"
+        className="grain absolute inset-x-0 top-[-6%] -z-10 h-[118%]"
       >
         <Image
           src={hero.background.src}
@@ -89,7 +89,7 @@ export function Hero() {
         className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(14,14,14,0.55)_0%,rgba(14,14,14,0)_30%,rgba(14,14,14,0)_60%,rgba(14,14,14,0.85)_100%)]"
       />
 
-      <Container className="min-h-[100svh] pb-[clamp(120px,16vw,240px)] pt-28 md:pt-36">
+      <Container className="min-h-svh pb-[clamp(120px,16vw,240px)] pt-28 md:pt-36">
         <div className={`${gridClass} items-end gap-y-14`}>
           <div className="col-span-4 md:col-span-7 lg:col-span-7">
             <motion.p {...rise(0.1)} className="label text-muted">
