@@ -41,7 +41,7 @@ export const hero = {
     "I understand how businesses run, diagnose their pain points, and deliver technology integrations that close the gap.",
   ctas: [
     { label: "Let's talk", href: "#connect", primary: true },
-    { label: "See the work", href: "#work", primary: false },
+    { label: "See my experience", href: "#work", primary: false },
   ],
   background: {
     src: "/images/background-fuji-window.jpg",
@@ -138,6 +138,7 @@ export type WorkEntry = {
 export const work = {
   index: "004",
   label: "Work & Experience",
+  resume: { label: "My Resume", href: "/joel-mcgill-resume.pdf" },
   entries: [
     {
       company: "Sinfra",

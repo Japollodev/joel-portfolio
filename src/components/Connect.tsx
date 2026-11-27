@@ -15,7 +15,7 @@ export function Connect() {
         <div className={`${gridClass} gap-y-16`}>
           <div className="col-span-4 md:col-span-7">
             <Reveal>
-              <SectionLabel index={connect.index} label={connect.label} />
+              <SectionLabel id="connect-label" index={connect.index} label={connect.label} />
             </Reveal>
             <Reveal delay={0.1}>
               <h2 id="connect-heading" className="display mt-8 text-[clamp(2.6rem,6vw,5.75rem)]">
@@ -25,6 +25,7 @@ export function Connect() {
 
             <Reveal delay={0.2} className="mt-12 md:mt-16">
               <a
+                id="connect-email"
                 href={`mailto:${connect.primaryEmail}`}
                 className="group inline-flex max-w-full items-center gap-4 rounded-full bg-paper px-7 py-5 text-ink transition-colors duration-500 hover:bg-accent hover:text-white md:gap-6 md:px-10 md:py-6"
               >

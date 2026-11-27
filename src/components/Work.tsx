@@ -96,6 +96,19 @@ export function Work() {
             );
           })}
         </ol>
+
+        <Reveal className="mt-14 flex justify-center md:mt-20">
+          <a
+            href={work.resume.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="label inline-flex items-center gap-3 rounded-full px-6 py-3.5 text-fg ring-1 ring-fg/40 transition-colors duration-300 hover:text-accent-text hover:ring-accent"
+          >
+            {work.resume.label}
+            <span aria-hidden="true">↗</span>
+            <span className="sr-only"> (PDF, opens in a new tab)</span>
+          </a>
+        </Reveal>
       </Container>
     </Section>
   );
