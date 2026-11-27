@@ -8,6 +8,38 @@ import { Container, gridClass } from "./Container";
 import { Emph } from "./Emph";
 import { Photo } from "./Photo";
 
+/**
+ * Scroll to Connect so the section label, headline and email button all sit
+ * below the fixed nav. If they don't all fit (short viewports), scroll just
+ * far enough to show the whole email button, keeping as much headline as possible.
+ * Falls back to the plain #connect anchor if the elements aren't found.
+ */
+function scrollToConnect(e: React.MouseEvent<HTMLAnchorElement>, reduce: boolean | null) {
+  const label = document.getElementById("connect-label");
+  const button = document.getElementById("connect-email");
+  if (!label || !button) return;
+  e.preventDefault();
+
+  const gap = 24;
+  const navH = document.querySelector("header")?.getBoundingClientRect().height ?? 80;
+  // offsetTop ignores transforms, so Reveal's not-yet-played 28px rise doesn't skew this.
+  const docTop = (el: HTMLElement) => {
+    let y = 0;
+    for (let n: HTMLElement | null = el; n; n = n.offsetParent as HTMLElement | null) y += n.offsetTop;
+    return y;
+  };
+  const top = docTop(label);
+  const bottom = docTop(button) + button.offsetHeight;
+  const viewH = window.innerHeight;
+
+  const fits = bottom - top <= viewH - navH - gap * 2;
+  const y = fits ? top - navH - gap : bottom - viewH + gap;
+
+  window.scrollTo({ top: Math.max(0, y), behavior: reduce ? "auto" : "smooth" });
+  history.pushState(null, "", "#connect");
+  button.focus({ preventScroll: true });
+}
+
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
   const reduce = useReducedMotion();
@@ -94,6 +126,7 @@ export function Hero() {
                 <a
                   key={cta.href}
                   href={cta.href}
+                  onClick={cta.href === "#connect" ? (e) => scrollToConnect(e, reduce) : undefined}
                   className={
                     cta.primary
                       ? "label inline-flex items-center gap-3 rounded-full bg-paper px-6 py-3.5 text-ink ring-1 ring-paper transition-colors duration-300 hover:bg-transparent hover:text-accent-text hover:ring-accent"
